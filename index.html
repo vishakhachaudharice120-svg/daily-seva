@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="mr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Daily Seva Poll</title>
+  <link href="https://fonts.googleapis.com/css2?family=Tiro+Devanagari+Marathi:ital@0;1&family=Cinzel:wght@700;900&display=swap" rel="stylesheet"/>
+  <style>
+    :root {
+      --saffron:     #FF6B00;
+      --deep-orange: #C94B00;
+      --gold:        #FFB347;
+      --cream:       #FFF8EE;
+      --dark:        #1A0A00;
+      --card-bg:     rgba(255, 255, 255, 0.85);
+      --shadow:      0 8px 32px rgba(201, 75, 0, 0.18);
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      min-height: 100vh;
+      background: var(--cream);
+      font-family: 'Tiro Devanagari Marathi', serif;
+      overflow-x: hidden;
+      position: relative;
+    }
+
+    /* Decorative mandala background */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background:
+        radial-gradient(ellipse at 15% 20%, rgba(255,107,0,0.12) 0%, transparent 55%),
+        radial-gradient(ellipse at 85% 80%, rgba(255,179,71,0.15) 0%, transparent 55%),
+        radial-gradient(ellipse at 50% 50%, rgba(201,75,0,0.06) 0%, transparent 70%);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    /* Geometric border pattern top */
+    body::after {
+      content: '';
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      height: 6px;
+      background: linear-gradient(90deg,
+        var(--deep-orange) 0%, var(--gold) 25%,
+        var(--saffron) 50%, var(--gold) 75%,
+        var(--deep-orange) 100%);
+      z-index: 100;
+    }
+
+    .wrapper {
+      position: relative;
+      z-index: 1;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 30px 16px 40px;
+    }
+
+    /* OM Symbol */
+    .om {
+      font-size: 2.8rem;
+      color: var(--saffron);
+      margin-bottom: 8px;
+      filter: drop-shadow(0 2px 8px rgba(255,107,0,0.4));
+      animation: glow 3s ease-in-out infinite alternate;
+    }
+
+    @keyframes glow {
+      from { filter: drop-shadow(0 2px 8px rgba(255,107,0,0.3)); }
+      to   { filter: drop-shadow(0 2px 20px rgba(255,107,0,0.7)); }
+    }
+
+    /* Header */
+    .header {
+      text-align: center;
+      margin-bottom: 10px;
+    }
+
+    .header h1 {
+      font-family: 'Cinzel', serif;
+      font-weight: 900;
+      font-size: clamp(1.5rem, 4vw, 2.4rem);
+      letter-spacing: 0.06em;
+      background: linear-gradient(135deg, var(--deep-orange) 0%, var(--saffron) 50%, var(--gold) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      line-height: 1.1;
+      margin-bottom: 10px;
+    }
+
+    .divider {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      justify-content: center;
+      margin: 6px 0 6px;
+    }
+
+    .divider-line {
+      height: 1.5px;
+      width: 80px;
+      background: linear-gradient(90deg, transparent, var(--saffron));
+    }
+    .divider-line.right {
+      background: linear-gradient(90deg, var(--saffron), transparent);
+    }
+
+    .divider-dot {
+      width: 8px; height: 8px;
+      border-radius: 50%;
+      background: var(--saffron);
+      box-shadow: 0 0 8px var(--gold);
+    }
+
+    .subtitle {
+      font-size: 0.78rem;
+      color: var(--deep-orange);
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      opacity: 0.8;
+      margin-bottom: 4px;
+    }
+
+    /* Instruction */
+    .instruction {
+      font-size: 0.85rem;
+      color: #7a4a20;
+      margin-bottom: 48px;
+      opacity: 0.75;
+      letter-spacing: 0.05em;
+    }
+
+    /* Cards grid */
+    .cards {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      width: 100%;
+      max-width: 680px;
+    }
+
+    .card {
+      background: var(--card-bg);
+      border-radius: 16px;
+      border: 1.5px solid rgba(255, 107, 0, 0.2);
+      box-shadow: var(--shadow);
+      padding: 14px 16px 14px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      backdrop-filter: blur(10px);
+      transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+      animation: cardIn 0.6s ease both;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .card::before {
+      content: '';
+      position: absolute;
+      left: 0; top: 0; bottom: 0;
+      width: 4px;
+      background: linear-gradient(180deg, var(--saffron), var(--gold));
+      border-radius: 4px 0 0 4px;
+    }
+
+    .card:nth-child(1) { animation-delay: 0.05s; }
+    .card:nth-child(2) { animation-delay: 0.12s; }
+    .card:nth-child(3) { animation-delay: 0.19s; }
+    .card:nth-child(4) { animation-delay: 0.26s; }
+    .card:nth-child(5) { animation-delay: 0.33s; }
+
+    @keyframes cardIn {
+      from { opacity: 0; transform: translateY(24px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    .card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 16px 48px rgba(201, 75, 0, 0.25);
+      border-color: rgba(255, 107, 0, 0.45);
+    }
+
+    .card-num {
+      flex-shrink: 0;
+      width: 26px; height: 26px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--saffron), var(--gold));
+      color: white;
+      font-family: 'Cinzel', serif;
+      font-weight: 700;
+      font-size: 0.72rem;
+      display: flex; align-items: center; justify-content: center;
+      box-shadow: 0 3px 10px rgba(255, 107, 0, 0.4);
+    }
+
+    .card-body {
+      flex: 1;
+    }
+
+    .card-text {
+      font-size: 0.9rem;
+      color: var(--dark);
+      line-height: 1.5;
+      white-space: pre-line;
+    }
+
+    /* Copy button */
+    .copy-btn {
+      flex-shrink: 0;
+      background: none;
+      border: none;
+      border-radius: 10px;
+      padding: 6px 8px;
+      cursor: pointer;
+      color: var(--saffron);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.2s ease;
+      margin-top: 2px;
+    }
+
+    .copy-btn:hover {
+      background: var(--saffron);
+      color: white;
+      border-color: var(--saffron);
+      transform: scale(1.05);
+      box-shadow: 0 4px 14px rgba(255, 107, 0, 0.35);
+    }
+
+    .copy-btn.copied {
+      background: #2e7d32;
+      border-color: #2e7d32;
+      color: white;
+    }
+
+    .copy-btn svg {
+      width: 18px; height: 18px;
+      stroke: currentColor;
+      fill: none;
+      stroke-width: 2;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+
+
+    @media (max-width: 480px) {
+      .card { padding: 12px 14px; gap: 10px; }
+      .card-text { font-size: 0.85rem; }
+    }
+  </style>
+</head>
+<body>
+<div class="wrapper">
+
+  <div class="header">
+    <h1>Daily Seva Poll</h1>
+    <div class="divider">
+      <div class="divider-line"></div>
+      <div class="divider-dot"></div>
+      <div class="divider-line right"></div>
+    </div>
+    <p class="subtitle">श्री स्वामी समर्थ</p>
+  </div>
+
+  <div class="cards" id="cards">
+
+    <div class="card">
+      <div class="card-num">१</div>
+      <div class="card-body">
+        <p class="card-text">आजची श्री स्वामी समर्थ महाराजांची सेवा केली का?</p>
+      </div>
+      <button class="copy-btn" onclick="copyCard(this, 'आजची श्री स्वामी समर्थ महाराजांची सेवा केली का??')">
+        <svg viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+      </button>
+    </div>
+
+    <div class="card">
+      <div class="card-num">२</div>
+      <div class="card-body">
+        <p class="card-text">होय ३ अध्याय वाचन व ११ माळी जप केला</p>
+      </div>
+      <button class="copy-btn" onclick="copyCard(this, 'होय ३ अध्याय वाचन व ११ माळी जप केला')">
+        <svg viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+      </button>
+    </div>
+
+    <div class="card">
+      <div class="card-num">३</div>
+      <div class="card-body">
+        <p class="card-text">फक्त ३ अध्याय श्री स्वामी चरीत्र क्रमशः वाचन केले</p>
+      </div>
+      <button class="copy-btn" onclick="copyCard(this, 'फक्त ३ अध्याय श्री स्वामी चरीत्र क्रमशः वाचन केले')">
+        <svg viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+      </button>
+    </div>
+
+    <div class="card">
+      <div class="card-num">४</div>
+      <div class="card-body">
+        <p class="card-text">फक्त ११ माळी जप श्री स्वामी समर्थ मंत्रांचा केला</p>
+      </div>
+      <button class="copy-btn" onclick="copyCard(this, 'फक्त ११ माळी जप श्री स्वामी समर्थ मंत्रांचा केला')">
+        <svg viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+      </button>
+    </div>
+
+    <div class="card">
+      <div class="card-num">५</div>
+      <div class="card-body">
+        <p class="card-text">११ पेक्षा कमी माळी जप श्री स्वामी समर्थ मंत्रांचा केला</p>
+      </div>
+      <button class="copy-btn" onclick="copyCard(this, '११ पेक्षा कमी माळी जप श्री स्वामी समर्थ मंत्रांचा केला')">
+        <svg viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+      </button>
+    </div>
+
+  </div>
+
+
+
+</div>
+
+<script>
+  function copyCard(btn, text) {
+    navigator.clipboard.writeText(text).then(() => {
+      const label = btn.querySelector('.copy-label');
+      const origLabel = label.textContent;
+      btn.classList.add('copied');
+      label.textContent = 'COPIED';
+      btn.querySelector('svg').innerHTML = '<polyline points="20 6 9 17 4 12"/>';
+      setTimeout(() => {
+        btn.classList.remove('copied');
+        label.textContent = origLabel;
+        btn.querySelector('svg').innerHTML = '<rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/>';
+      }, 2000);
+    }).catch(() => {
+      // Fallback for older browsers
+      const ta = document.createElement('textarea');
+      ta.value = text;
+      ta.style.position = 'fixed';
+      ta.style.opacity = '0';
+      document.body.appendChild(ta);
+      ta.select();
+      document.execCommand('copy');
+      document.body.removeChild(ta);
+    });
+  }
+</script>
+</body>
+</html>
