@@ -48,7 +48,6 @@
       padding: 30px 16px 50px;
     }
 
-    /* HEADER */
     .site-title {
       font-family: 'Cinzel', serif;
       font-weight: 900;
@@ -70,7 +69,6 @@
       text-align: center;
     }
 
-    /* TABS */
     .tabs {
       display: flex;
       background: rgba(255,255,255,0.7);
@@ -101,11 +99,9 @@
       font-weight: 700;
     }
 
-    /* PANELS */
     .panel { display: none; width: 100%; max-width: 600px; }
     .panel.active { display: block; }
 
-    /* SEVA POLL CARDS */
     .cards { display: flex; flex-direction: column; gap: 12px; }
 
     .card {
@@ -128,12 +124,6 @@
       border-radius: 4px 0 0 4px;
     }
 
-    .card:nth-child(1){animation-delay:0.04s}
-    .card:nth-child(2){animation-delay:0.10s}
-    .card:nth-child(3){animation-delay:0.16s}
-    .card:nth-child(4){animation-delay:0.22s}
-    .card:nth-child(5){animation-delay:0.28s}
-
     @keyframes cardIn {
       from { opacity:0; transform:translateY(18px); }
       to   { opacity:1; transform:translateY(0); }
@@ -152,10 +142,7 @@
     }
 
     .card-body { flex:1; }
-
-    .card-text {
-      font-size:0.9rem; color:var(--dark); line-height:1.5;
-    }
+    .card-text { font-size:0.9rem; color:var(--dark); line-height:1.5; }
 
     .copy-btn {
       flex-shrink:0; background:none; border:none;
@@ -173,10 +160,7 @@
       fill:none; stroke-width:2; stroke-linecap:round; stroke-linejoin:round;
     }
 
-    /* QUESTION TAB */
-    .q-subnav {
-      display:flex; gap:8px; margin-bottom:20px;
-    }
+    .q-subnav { display:flex; gap:8px; margin-bottom:20px; }
 
     .sub-btn {
       flex:1; padding:8px 0;
@@ -216,10 +200,7 @@
       font-size:0.92rem; color:var(--dark);
       background:rgba(255,248,238,0.8);
       resize:vertical; outline:none;
-      transition:border-color 0.2s;
     }
-
-    .add-question-box textarea:focus { border-color:var(--saffron); }
 
     .btn-primary {
       margin-top:14px; width:100%;
@@ -230,10 +211,7 @@
       font-weight:700; font-size:0.88rem;
       letter-spacing:0.06em; cursor:pointer;
       box-shadow:0 4px 14px rgba(255,107,0,0.35);
-      transition:all 0.2s ease;
     }
-
-    .btn-primary:hover { transform:translateY(-1px); box-shadow:0 6px 18px rgba(255,107,0,0.45); }
 
     .q-list { display:flex; flex-direction:column; gap:12px; }
 
@@ -244,7 +222,6 @@
       display:flex; align-items:flex-start; gap:10px;
       backdrop-filter:blur(10px);
       position:relative; overflow:hidden;
-      animation: cardIn 0.4s ease both;
     }
 
     .q-card::before {
@@ -254,40 +231,20 @@
       border-radius:4px 0 0 4px;
     }
 
-    .q-card-text {
-      flex:1; font-size:0.88rem; color:var(--dark); line-height:1.55;
-    }
-
     .use-btn {
       flex-shrink:0;
       padding:6px 13px;
       background:linear-gradient(135deg, var(--saffron), var(--gold));
       border:none; border-radius:8px;
       color:white; font-family:'Cinzel',serif;
-      font-size:0.7rem; font-weight:700; letter-spacing:0.05em;
-      cursor:pointer; white-space:nowrap;
-      box-shadow:0 3px 10px rgba(255,107,0,0.3);
-      transition:all 0.2s ease;
+      font-size:0.7rem; font-weight:700; cursor:pointer;
     }
-
-    .use-btn:hover { transform:scale(1.05); }
 
     .delete-btn {
       flex-shrink:0; background:none; border:none;
       color:#c0392b; cursor:pointer; padding:4px;
-      border-radius:6px; transition:background 0.2s;
-      display:flex; align-items:center;
     }
 
-    .delete-btn:hover { background:rgba(192,57,43,0.1); }
-    .delete-btn svg { width:15px; height:15px; stroke:currentColor; fill:none; stroke-width:2; stroke-linecap:round; stroke-linejoin:round; }
-
-    .empty-state {
-      text-align:center; padding:40px 20px;
-      color:#b07840; opacity:0.7; font-size:0.9rem;
-    }
-
-    /* MODAL */
     .modal-overlay {
       display:none; position:fixed; inset:0;
       background:rgba(26,10,0,0.55);
@@ -306,113 +263,44 @@
       padding:24px 22px;
       width:100%; max-width:480px;
       max-height:90vh; overflow-y:auto;
-      animation:modalIn 0.25s ease;
     }
 
-    @keyframes modalIn {
-      from { opacity:0; transform:scale(0.93) translateY(12px); }
-      to   { opacity:1; transform:scale(1) translateY(0); }
-    }
-
-    .modal-header {
-      display:flex; justify-content:space-between; align-items:center;
-      margin-bottom:18px;
-    }
-
-    .modal-title {
-      font-family:'Cinzel',serif; font-weight:700;
-      font-size:1rem; color:var(--deep-orange);
-    }
-
-    .close-btn {
-      background:none; border:none; cursor:pointer;
-      color:#8a5a30; font-size:1.4rem; line-height:1;
-      padding:2px 6px; border-radius:6px;
-      transition:background 0.2s;
-    }
-
-    .close-btn:hover { background:rgba(255,107,0,0.12); }
+    .modal-header { display:flex; justify-content:space-between; align-items:center; margin-bottom:18px; }
+    .modal-title { font-family:'Cinzel',serif; font-weight:700; color:var(--deep-orange); }
+    .close-btn { background:none; border:none; cursor:pointer; font-size:1.4rem; color:#8a5a30; }
 
     .field-group { margin-bottom:14px; }
-
-    .field-group label {
-      display:block; font-size:0.75rem; color:var(--deep-orange);
-      letter-spacing:0.1em; text-transform:uppercase; margin-bottom:6px;
-    }
-
-    .field-group input,
-    .field-group textarea {
-      width:100%;
-      border:1.5px solid rgba(255,107,0,0.25);
-      border-radius:10px; padding:10px 12px;
-      font-family:'Tiro Devanagari Marathi',serif;
-      font-size:0.92rem; color:var(--dark);
-      background:rgba(255,248,238,0.8);
-      outline:none; transition:border-color 0.2s;
-    }
-
-    .field-group input:focus,
-    .field-group textarea:focus { border-color:var(--saffron); }
-
-    .field-group textarea { min-height:90px; resize:vertical; }
-
-    .modal-divider {
-      border:none; border-top:1px dashed rgba(255,107,0,0.25);
-      margin:18px 0;
+    .field-group label { display:block; font-size:0.75rem; color:var(--deep-orange); margin-bottom:6px; }
+    .field-group input, .field-group textarea {
+      width:100%; border:1.5px solid rgba(255,107,0,0.25);
+      border-radius:10px; padding:10px 12px; font-family:'Tiro Devanagari Marathi',serif;
     }
 
     .final-box {
       display:none;
       background:rgba(255,107,0,0.06);
       border:1.5px solid rgba(255,107,0,0.25);
-      border-radius:12px; padding:16px;
-      margin-top:16px;
+      border-radius:12px; padding:16px; margin-top:16px;
     }
 
     .final-box.show { display:block; }
-
-    .final-label {
-      font-size:0.72rem; color:var(--deep-orange);
-      letter-spacing:0.12em; text-transform:uppercase;
-      margin-bottom:10px; display:block;
-    }
-
-    .final-text {
-      font-size:0.9rem; color:var(--dark);
-      line-height:1.7; white-space:pre-wrap; word-break:break-word;
-    }
+    .final-text { font-size:0.9rem; color:var(--dark); line-height:1.7; white-space:pre-wrap; }
 
     .copy-final-btn {
-      margin-top:12px; width:100%;
-      padding:10px;
+      margin-top:12px; width:100%; padding:10px;
       background:linear-gradient(135deg, var(--deep-orange), var(--saffron));
-      border:none; border-radius:10px;
-      color:white; font-family:'Cinzel',serif;
-      font-weight:700; font-size:0.82rem;
-      letter-spacing:0.06em; cursor:pointer;
-      display:flex; align-items:center; justify-content:center; gap:8px;
-      box-shadow:0 4px 14px rgba(201,75,0,0.3);
-      transition:all 0.2s ease;
+      border:none; border-radius:10px; color:white; font-family:'Cinzel',serif;
+      font-weight:700; cursor:pointer; display:flex; align-items:center; justify-content:center; gap:8px;
     }
-
-    .copy-final-btn:hover { transform:translateY(-1px); }
-    .copy-final-btn svg { width:16px; height:16px; stroke:currentColor; fill:none; stroke-width:2; stroke-linecap:round; stroke-linejoin:round; }
 
     .toast {
       position:fixed; bottom:28px; left:50%; transform:translateX(-50%);
-      background:#2e7d32; color:white;
-      padding:10px 22px; border-radius:24px;
-      font-size:0.85rem; letter-spacing:0.05em;
-      box-shadow:0 6px 20px rgba(0,0,0,0.2);
-      z-index:999; opacity:0; pointer-events:none;
-      transition:opacity 0.3s ease; white-space:nowrap;
+      background:#2e7d32; color:white; padding:10px 22px; border-radius:24px;
+      font-size:0.85rem; z-index:999; opacity:0; pointer-events:none;
+      transition:opacity 0.3s ease;
     }
 
     .toast.show { opacity:1; }
-
-    @media(max-width:480px){
-      .modal { padding:20px 16px; }
-    }
   </style>
 </head>
 <body>
@@ -421,20 +309,22 @@
   <p class="site-title">श्री स्वामी समर्थ</p>
   <p class="site-sub">॥ अक्कलकोट निवासी ॥</p>
 
-  <!-- TABS -->
   <div class="tabs">
     <button class="tab-btn active" onclick="switchTab('seva')">Seva Poll</button>
-    <button class="tab-btn"        onclick="switchTab('question')">Question</button>
+    <button class="tab-btn" onclick="switchTab('question')">Question</button>
   </div>
 
   <!-- SEVA POLL PANEL -->
   <div class="panel active" id="panel-seva">
     <div class="cards">
-
+      <!-- MAIN QUESTION CARD -->
       <div class="card">
         <div class="card-num">१</div>
-        <div class="card-body"><p class="card-text">आजची श्री स्वामी समर्थ महाराजांची सेवा केली का??</p></div>
-        <button class="copy-btn" onclick="copyText(this,'आजची श्री स्वामी समर्थ महाराजांची सेवा केली का??')">
+        <div class="card-body">
+          <!-- The ID 'date-question' is where the date will be injected -->
+          <p class="card-text" id="date-question">आजची श्री स्वामी समर्थ महाराजांची सेवा केली का?</p>
+        </div>
+        <button class="copy-btn" onclick="copyDynamicText(this)">
           <svg viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
         </button>
       </div>
@@ -470,18 +360,15 @@
           <svg viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
         </button>
       </div>
-
     </div>
   </div>
 
   <!-- QUESTION PANEL -->
   <div class="panel" id="panel-question">
-
     <div class="q-subnav">
       <button class="sub-btn active" id="sub-add-btn" onclick="switchSub('add')">Add Question</button>
-      <button class="sub-btn"        id="sub-view-btn" onclick="switchSub('view')">View Questions</button>
+      <button class="sub-btn" id="sub-view-btn" onclick="switchSub('view')">View Questions</button>
     </div>
-
     <div class="sub-panel active" id="sub-add">
       <div class="add-question-box">
         <label>New Question</label>
@@ -489,47 +376,38 @@
         <button class="btn-primary" onclick="addQuestion()">+ Add Question</button>
       </div>
     </div>
-
     <div class="sub-panel" id="sub-view">
       <div class="q-list" id="q-list"></div>
     </div>
-
   </div>
-
 </div>
 
-<!-- USE QUESTION MODAL -->
+<!-- MODAL -->
 <div class="modal-overlay" id="modal-overlay" onclick="closeModalOutside(event)">
   <div class="modal">
     <div class="modal-header">
       <span class="modal-title">Set Question</span>
       <button class="close-btn" onclick="closeModal()">×</button>
     </div>
-
     <div class="field-group">
       <label>Sequence No.</label>
       <input type="number" id="modal-seq" placeholder="e.g. 38" min="1"/>
     </div>
-
     <div class="field-group">
       <label>Date</label>
       <input type="date" id="modal-date"/>
     </div>
-
     <div class="field-group">
       <label>Question</label>
       <textarea id="modal-q" placeholder="Question text..."></textarea>
     </div>
-
     <button class="btn-primary" onclick="setQuestion()">✦ Set Question</button>
-
-    <hr class="modal-divider"/>
-
+    <hr class="modal-divider" style="margin: 20px 0; border: 0; border-top: 1px dashed #ccc;"/>
     <div class="final-box" id="final-box">
-      <span class="final-label">Final Message</span>
+      <span class="final-label" style="font-size: 11px; color: var(--deep-orange); font-weight: bold;">Final Message</span>
       <p class="final-text" id="final-text"></p>
       <button class="copy-final-btn" onclick="copyFinal()">
-        <svg viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+        <svg viewBox="0 0 24 24" style="width:16px; height:16px; stroke:currentColor; fill:none; stroke-width:2;"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
         Copy Message
       </button>
     </div>
@@ -538,18 +416,35 @@
 
 <div class="toast" id="toast"></div>
 
-<!-- Seed questions (from questions.js) -->
-<script>
-// Inline seed — same as questions.js for standalone use
-const SEED_QUESTIONS = [
-  "श्री स्वामी चरित्र सारामृत या ग्रंथात लेखक कै. विष्णू बळवंत थोरात यांनी वर्णन केल्याप्रमाणे श्री स्वामी समर्थ महाराज बडोद्यास येण्यास नाही का म्हणाले होते?",
-  "श्री स्वामी समर्थ महाराजांनी अक्कलकोटात किती वर्षे वास्तव्य केले?",
-  "श्री स्वामी समर्थ महाराजांचे मूळ नाव काय होते असे सांगितले जाते?"
-];
-</script>
-
 <script>
   const LS_KEY = 'swami_questions_v1';
+  const SEED_QUESTIONS = [
+    "श्री स्वामी चरित्र सारामृत या ग्रंथात लेखक कै. विष्णू बळवंत थोरात यांनी वर्णन केल्याप्रमाणे श्री स्वामी समर्थ महाराज बडोद्यास येण्यास नाही का म्हणाले होते?",
+    "श्री स्वामी समर्थ महाराजांनी अक्कलकोटात किती वर्षे वास्तव्य केले?",
+    "श्री स्वामी समर्थ महाराजांचे मूळ नाव काय होते असे सांगितले जाते?"
+  ];
+
+  // --- NEW DATE LOGIC ---
+  function getTodayFormatted() {
+    const today = new Date();
+    const d = today.getDate();
+    const m = today.getMonth() + 1;
+    const y = today.getFullYear();
+    return `${d}/${m}/${y}`;
+  }
+
+  // Update the UI on load
+  window.addEventListener('DOMContentLoaded', () => {
+    const dateStr = getTodayFormatted();
+    const questionEl = document.getElementById('date-question');
+    questionEl.innerText = `आजची (${dateStr}) श्री स्वामी समर्थ महाराजांची सेवा केली का?`;
+  });
+
+  function copyDynamicText(btn) {
+    const text = document.getElementById('date-question').innerText;
+    copyText(btn, text);
+  }
+  // ----------------------
 
   function loadQuestions() {
     try {
@@ -565,7 +460,6 @@ const SEED_QUESTIONS = [
     try { localStorage.setItem(LS_KEY, JSON.stringify(arr)); } catch(e) {}
   }
 
-  // Tabs
   function switchTab(tab) {
     document.querySelectorAll('.tab-btn').forEach((b, i) =>
       b.classList.toggle('active', tab === 'seva' ? i === 0 : i === 1));
@@ -582,7 +476,6 @@ const SEED_QUESTIONS = [
     if (sub === 'view') renderQuestions();
   }
 
-  // Add Question
   function addQuestion() {
     const inp = document.getElementById('new-q-input');
     const text = inp.value.trim();
@@ -594,20 +487,19 @@ const SEED_QUESTIONS = [
     showToast('✓ Question added!');
   }
 
-  // Render questions list
   function renderQuestions() {
     const list = document.getElementById('q-list');
     const qs = loadQuestions();
     if (!qs.length) {
-      list.innerHTML = '<div class="empty-state">No questions added yet.<br>Go to Add Question to get started.</div>';
+      list.innerHTML = '<div class="empty-state">No questions added yet.</div>';
       return;
     }
     list.innerHTML = qs.map(q => `
-      <div class="q-card" id="qcard-${q.id}">
-        <div class="q-card-text">${escHtml(q.text)}</div>
+      <div class="q-card">
+        <div class="q-card-text">${q.text}</div>
         <button class="use-btn" onclick="openModal(${q.id})">Use</button>
-        <button class="delete-btn" onclick="deleteQuestion(${q.id})" title="Delete">
-          <svg viewBox="0 0 24 24"><polyline points="3 6 5 6 21 6"/><path d="M19 6l-1 14a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2L5 6"/><path d="M10 11v6M14 11v6"/><path d="M9 6V4h6v2"/></svg>
+        <button class="delete-btn" onclick="deleteQuestion(${q.id})">
+          <svg viewBox="0 0 24 24" style="width:15px; height:15px; stroke:currentColor; fill:none; stroke-width:2;"><polyline points="3 6 5 6 21 6"/><path d="M19 6l-1 14a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2L5 6"/><path d="M10 11v6M14 11v6"/><path d="M9 6V4h6v2"/></svg>
         </button>
       </div>`).join('');
   }
@@ -617,13 +509,7 @@ const SEED_QUESTIONS = [
     renderQuestions();
   }
 
-  function escHtml(s) {
-    return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
-  }
-
-  // Modal
   let currentFinalText = '';
-
   function openModal(qId) {
     const q = loadQuestions().find(x => x.id === qId);
     if (!q) return;
@@ -631,68 +517,37 @@ const SEED_QUESTIONS = [
     document.getElementById('modal-seq').value = '';
     document.getElementById('modal-date').value = new Date().toISOString().split('T')[0];
     document.getElementById('final-box').classList.remove('show');
-    document.getElementById('final-text').textContent = '';
-    currentFinalText = '';
     document.getElementById('modal-overlay').classList.add('open');
   }
 
-  function closeModal() {
-    document.getElementById('modal-overlay').classList.remove('open');
-  }
-
-  function closeModalOutside(e) {
-    if (e.target === document.getElementById('modal-overlay')) closeModal();
-  }
+  function closeModal() { document.getElementById('modal-overlay').classList.remove('open'); }
+  function closeModalOutside(e) { if (e.target === document.getElementById('modal-overlay')) closeModal(); }
 
   function setQuestion() {
-    const seq  = document.getElementById('modal-seq').value.trim();
+    const seq = document.getElementById('modal-seq').value.trim();
     const date = document.getElementById('modal-date').value;
-    const q    = document.getElementById('modal-q').value.trim();
+    const q = document.getElementById('modal-q').value.trim();
     if (!seq || !date || !q) { alert('Please fill in all fields.'); return; }
 
-    const dateDev = formatDateDev(date);
-
-    const final =
-`*॥श्री स्वामी समर्थ॥*
-*आजचा प्रश्न - No. ${seq}(${dateDev}) - श्री स्वामी चरित्र सारामृत प्रश्नमंजुषा*
-${q}`;
+    const [y, m, d] = date.split('-');
+    const dateDev = `${d}.${m}.${y}`.replace(/[0-9]/g, d => '०१२३४५६७८९'[+d]);
+    const final = `*॥श्री स्वामी समर्थ॥*\n*आजचा प्रश्न - No. ${seq}(${dateDev}) - श्री स्वामी चरित्र सारामृत प्रश्नमंजुषा*\n${q}`;
 
     currentFinalText = final;
     document.getElementById('final-text').textContent = final;
     document.getElementById('final-box').classList.add('show');
   }
 
-  function toDevNum(str) {
-    return String(str).replace(/[0-9]/g, d => '०१२३४५६७८९'[+d]);
-  }
-
-  function formatDateDev(dateStr) {
-    const [y, m, d] = dateStr.split('-');
-    return toDevNum(`${d.padStart(2,'0')}.${m.padStart(2,'0')}.${y}`);
-  }
-
-  // Copy
   function copyText(btn, text) {
-    navigator.clipboard.writeText(text).catch(() => fallbackCopy(text));
+    navigator.clipboard.writeText(text);
     btn.classList.add('copied');
-    btn.querySelector('svg').innerHTML = '<polyline points="20 6 9 17 4 12"/>';
-    setTimeout(() => {
-      btn.classList.remove('copied');
-      btn.querySelector('svg').innerHTML = '<rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/>';
-    }, 2000);
+    setTimeout(() => btn.classList.remove('copied'), 2000);
+    showToast('✓ Copied!');
   }
 
   function copyFinal() {
-    if (!currentFinalText) return;
-    navigator.clipboard.writeText(currentFinalText).catch(() => fallbackCopy(currentFinalText));
+    navigator.clipboard.writeText(currentFinalText);
     showToast('✓ Message copied!');
-  }
-
-  function fallbackCopy(text) {
-    const ta = document.createElement('textarea');
-    ta.value = text; ta.style.cssText = 'position:fixed;opacity:0';
-    document.body.appendChild(ta); ta.select();
-    document.execCommand('copy'); document.body.removeChild(ta);
   }
 
   function showToast(msg) {
