@@ -321,16 +321,37 @@
       <div class="card">
         <div class="card-num">१</div>
         <div class="card-body">
-          <!-- The ID 'date-question' is where the date will be injected -->
-          <p class="card-text" id="date-question">आजची श्री स्वामी समर्थ महाराजांची सेवा केली का?</p>
+          <p class="card-text" id="date-question">आजची (date) श्री स्वामी समर्थ महाराजांची सेवा केली का?</p>
         </div>
-        <button class="copy-btn" onclick="copyDynamicText(this)">
+        <button class="copy-btn" onclick="copyDynamicText('date-question', this)">
+          <svg viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+        </button>
+      </div>
+
+      <!-- NEW OPTION 1 -->
+      <div class="card">
+        <div class="card-num">२</div>
+        <div class="card-body">
+          <p class="card-text" id="opt-vishesh">विशेष सेवा (date)</p>
+        </div>
+        <button class="copy-btn" onclick="copyDynamicText('opt-vishesh', this)">
+          <svg viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+        </button>
+      </div>
+
+      <!-- NEW OPTION 2 -->
+      <div class="card">
+        <div class="card-num">३</div>
+        <div class="card-body">
+          <p class="card-text">१ वेळा पर्जन्य सुक्त</p>
+        </div>
+        <button class="copy-btn" onclick="copyText(this,'१ वेळा पर्जन्य सुक्त')">
           <svg viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
         </button>
       </div>
 
       <div class="card">
-        <div class="card-num">२</div>
+        <div class="card-num">४</div>
         <div class="card-body"><p class="card-text">होय ३ अध्याय वाचन व ११ माळी जप केला</p></div>
         <button class="copy-btn" onclick="copyText(this,'होय ३ अध्याय वाचन व ११ माळी जप केला')">
           <svg viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
@@ -338,7 +359,7 @@
       </div>
 
       <div class="card">
-        <div class="card-num">३</div>
+        <div class="card-num">५</div>
         <div class="card-body"><p class="card-text">फक्त ३ अध्याय श्री स्वामी चरीत्र क्रमशः वाचन केले</p></div>
         <button class="copy-btn" onclick="copyText(this,'फक्त ३ अध्याय श्री स्वामी चरीत्र क्रमशः वाचन केले')">
           <svg viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
@@ -346,7 +367,7 @@
       </div>
 
       <div class="card">
-        <div class="card-num">४</div>
+        <div class="card-num">६</div>
         <div class="card-body"><p class="card-text">फक्त ११ माळी जप श्री स्वामी समर्थ मंत्रांचा केला</p></div>
         <button class="copy-btn" onclick="copyText(this,'फक्त ११ माळी जप श्री स्वामी समर्थ मंत्रांचा केला')">
           <svg viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
@@ -354,7 +375,7 @@
       </div>
 
       <div class="card">
-        <div class="card-num">५</div>
+        <div class="card-num">७</div>
         <div class="card-body"><p class="card-text">११ पेक्षा कमी माळी जप श्री स्वामी समर्थ मंत्रांचा केला</p></div>
         <button class="copy-btn" onclick="copyText(this,'११ पेक्षा कमी माळी जप श्री स्वामी समर्थ मंत्रांचा केला')">
           <svg viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
@@ -362,7 +383,7 @@
       </div>
 
       <div class="card">
-        <div class="card-num">६</div>
+        <div class="card-num">८</div>
         <div class="card-body"><p class="card-text">अधिक मास विशेष सेवा</p></div>
         <button class="copy-btn" onclick="copyText(this,'अधिक मास विशेष सेवा')">
           <svg viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
@@ -370,7 +391,7 @@
       </div>
 
       <div class="card">
-        <div class="card-num">७</div>
+        <div class="card-num">९</div>
         <div class="card-body"><p class="card-text">१ वेळा पुरुषसुक्त</p></div>
         <button class="copy-btn" onclick="copyText(this,'१ वेळा पुरुषसुक्त')">
           <svg viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
@@ -378,7 +399,7 @@
       </div>
 
       <div class="card">
-        <div class="card-num">८</div>
+        <div class="card-num">१०</div>
         <div class="card-body"><p class="card-text">१ माळ श्री विष्णूचा मंत्र ( श्री वत्सं धारायन् )</p></div>
         <button class="copy-btn" onclick="copyText(this,'१ माळ श्री विष्णूचा मंत्र ( श्री वत्सं धारायन् )')">
           <svg viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
@@ -448,7 +469,7 @@
     "श्री स्वामी समर्थ महाराजांचे मूळ नाव काय होते असे सांगितले जाते?"
   ];
 
-  // --- NEW DATE LOGIC ---
+  // --- DATE LOGIC ---
   function getTodayFormatted() {
     const today = new Date();
     const d = today.getDate();
@@ -457,15 +478,19 @@
     return `${d}/${m}/${y}`;
   }
 
-  // Update the UI on load
+  // Update the UI on load to replace '(date)' placeholders dynamically
   window.addEventListener('DOMContentLoaded', () => {
     const dateStr = getTodayFormatted();
+    
     const questionEl = document.getElementById('date-question');
-    questionEl.innerText = `आजची (${dateStr}) श्री स्वामी समर्थ महाराजांची सेवा केली का?`;
+    questionEl.innerText = questionEl.innerText.replace('(date)', `(${dateStr})`);
+
+    const visheshEl = document.getElementById('opt-vishesh');
+    visheshEl.innerText = visheshEl.innerText.replace('(date)', `(${dateStr})`);
   });
 
-  function copyDynamicText(btn) {
-    const text = document.getElementById('date-question').innerText;
+  function copyDynamicText(elementId, btn) {
+    const text = document.getElementById(elementId).innerText;
     copyText(btn, text);
   }
   // ----------------------
