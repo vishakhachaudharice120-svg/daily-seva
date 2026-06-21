@@ -76,7 +76,7 @@
       border: 1.5px solid rgba(255,107,0,0.2);
       padding: 4px;
       margin-bottom: 24px;
-      width: 100%; max-width: 400px;
+      width: 100%; max-width: 500px;
       box-shadow: 0 2px 12px rgba(201,75,0,0.1);
     }
 
@@ -90,6 +90,7 @@
       cursor: pointer;
       border-radius: 9px;
       transition: all 0.22s ease;
+      text-align: center;
     }
 
     .tab-btn.active {
@@ -143,6 +144,7 @@
 
     .card-body { flex:1; }
     .card-text { font-size:0.9rem; color:var(--dark); line-height:1.5; }
+    .card-text-block { font-family: 'Tiro Devanagari Marathi', serif; font-size: 0.85rem; color: #5c3a21; background: rgba(255,107,0,0.04); padding: 8px 12px; border-radius: 6px; margin-top: 6px; border-left: 2px solid var(--gold); white-space: pre-line; }
 
     .copy-btn {
       flex-shrink:0; background:none; border:none;
@@ -310,8 +312,9 @@
   <p class="site-sub">॥ अक्कलकोट निवासी ॥</p>
 
   <div class="tabs">
-    <button class="tab-btn active" onclick="switchTab('seva')">Seva Poll</button>
-    <button class="tab-btn" onclick="switchTab('question')">Question</button>
+    <button class="tab-btn active" id="tab-seva" onclick="switchTab('seva')">Seva Poll</button>
+    <button class="tab-btn" id="tab-vishesh" onclick="switchTab('vishesh')">विशेष सेवा</button>
+    <button class="tab-btn" id="tab-question" onclick="switchTab('question')">Question</button>
   </div>
 
   <!-- SEVA POLL PANEL -->
@@ -328,9 +331,70 @@
         </button>
       </div>
 
-      <!-- NEW OPTION 1 -->
       <div class="card">
         <div class="card-num">२</div>
+        <div class="card-body"><p class="card-text">होय ३ अध्याय वाचन व ११ माळी जप केला</p></div>
+        <button class="copy-btn" onclick="copyText(this,'होय ३ अध्याय वाचन व ११ माळी जप केला')">
+          <svg viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+        </button>
+      </div>
+
+      <div class="card">
+        <div class="card-num">३</div>
+        <div class="card-body"><p class="card-text">फक्त ३ अध्याय श्री स्वामी चरीत्र क्रमशः वाचन केले</p></div>
+        <button class="copy-btn" onclick="copyText(this,'फक्त ३ अध्याय श्री स्वामी चरीत्र क्रमशः वाचन केले')">
+          <svg viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+        </button>
+      </div>
+
+      <div class="card">
+        <div class="card-num">४</div>
+        <div class="card-body"><p class="card-text">फक्त ११ माळी जप श्री स्वामी समर्थ मंत्रांचा केला</p></div>
+        <button class="copy-btn" onclick="copyText(this,'फक्त ११ माळी जप श्री स्वामी समर्थ मंत्रांचा केला')">
+          <svg viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+        </button>
+      </div>
+
+      <div class="card">
+        <div class="card-num">५</div>
+        <div class="card-body"><p class="card-text">११ पेक्षा कमी माळी जप श्री स्वामी समर्थ मंत्रांचा केला</p></div>
+        <button class="copy-btn" onclick="copyText(this,'११ पेक्षा कमी माळी जप श्री स्वामी समर्थ मंत्रांचा केला')">
+          <svg viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+        </button>
+      </div>
+
+      <div class="card">
+        <div class="card-num">६</div>
+        <div class="card-body"><p class="card-text">अधिक मास विशेष सेवा</p></div>
+        <button class="copy-btn" onclick="copyText(this,'अधिक मास विशेष सेवा')">
+          <svg viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+        </button>
+      </div>
+
+      <div class="card">
+        <div class="card-num">७</div>
+        <div class="card-body"><p class="card-text">१ वेळा पुरुषसुक्त</p></div>
+        <button class="copy-btn" onclick="copyText(this,'१ वेळा पुरुषसुक्त')">
+          <svg viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+        </button>
+      </div>
+
+      <div class="card">
+        <div class="card-num">८</div>
+        <div class="card-body"><p class="card-text">१ माळ श्री विष्णूचा मंत्र ( श्री वत्सं धारायन् )</p></div>
+        <button class="copy-btn" onclick="copyText(this,'१ माळ श्री विष्णूचा मंत्र ( श्री वत्सं धारायन् )')">
+          <svg viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- VISHESH SEVA PANEL -->
+  <div class="panel" id="panel-vishesh">
+    <div class="cards">
+      <!-- MOVED OLD OPTION 1 -->
+      <div class="card">
+        <div class="card-num">१</div>
         <div class="card-body">
           <p class="card-text" id="opt-vishesh">विशेष सेवा (date)</p>
         </div>
@@ -339,9 +403,9 @@
         </button>
       </div>
 
-      <!-- NEW OPTION 2 -->
+      <!-- MOVED OLD OPTION 2 -->
       <div class="card">
-        <div class="card-num">३</div>
+        <div class="card-num">२</div>
         <div class="card-body">
           <p class="card-text">१ वेळा पर्जन्य सुक्त</p>
         </div>
@@ -350,73 +414,20 @@
         </button>
       </div>
 
+      <!-- NEW MANTRA OPTION ADDED HERE -->
+      <!-- NEW MANTRA OPTION WITH FULL TEXT COPY -->
       <div class="card">
         <div class="card-num">३</div>
-        <div class="card-body">
-          <p class="card-text">पर्जन्य सुक्त वाचले नाही </p>
+        <div class="card-body" id="malhari-full-block">
+          <p class="card-text"><strong>मल्हारी मार्तंडाचा मंत्रजप (११ वेळा )</strong></p>
+          <div class="card-text-block">मंत्र : ॐ ऱ्हीं भ्रूं त्रूं स्त्रूं ऱ्हूं ध्रूं
+प्रियाणानंद गंगामहालसाभ्यां सहिताय श्रीमार्तंडभैरवरूपाय श्रीमल्लारये नमः ।
+भ्रूं ध्रूं ऱ्हूं स्त्रूं त्रूं भ्रूं ऱ्हीं ।।</div>
         </div>
-        <button class="copy-btn" onclick="copyText(this,'पर्जन्य सुक्त वाचले नाही')">
+        <button class="copy-btn" onclick="copyText(this, document.getElementById('malhari-full-block').innerText)">
           <svg viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
         </button>
       </div>
-
-      <div class="card">
-        <div class="card-num">४</div>
-        <div class="card-body"><p class="card-text">होय ३ अध्याय वाचन व ११ माळी जप केला</p></div>
-        <button class="copy-btn" onclick="copyText(this,'होय ३ अध्याय वाचन व ११ माळी जप केला')">
-          <svg viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
-        </button>
-      </div>
-
-      <div class="card">
-        <div class="card-num">५</div>
-        <div class="card-body"><p class="card-text">फक्त ३ अध्याय श्री स्वामी चरीत्र क्रमशः वाचन केले</p></div>
-        <button class="copy-btn" onclick="copyText(this,'फक्त ३ अध्याय श्री स्वामी चरीत्र क्रमशः वाचन केले')">
-          <svg viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
-        </button>
-      </div>
-
-      <div class="card">
-        <div class="card-num">६</div>
-        <div class="card-body"><p class="card-text">फक्त ११ माळी जप श्री स्वामी समर्थ मंत्रांचा केला</p></div>
-        <button class="copy-btn" onclick="copyText(this,'फक्त ११ माळी जप श्री स्वामी समर्थ मंत्रांचा केला')">
-          <svg viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
-        </button>
-      </div>
-
-      <div class="card">
-        <div class="card-num">७</div>
-        <div class="card-body"><p class="card-text">११ पेक्षा कमी माळी जप श्री स्वामी समर्थ मंत्रांचा केला</p></div>
-        <button class="copy-btn" onclick="copyText(this,'११ पेक्षा कमी माळी जप श्री स्वामी समर्थ मंत्रांचा केला')">
-          <svg viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
-        </button>
-      </div>
-
-      <div class="card">
-        <div class="card-num">८</div>
-        <div class="card-body"><p class="card-text">अधिक मास विशेष सेवा</p></div>
-        <button class="copy-btn" onclick="copyText(this,'अधिक मास विशेष सेवा')">
-          <svg viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
-        </button>
-      </div>
-
-      <div class="card">
-        <div class="card-num">९</div>
-        <div class="card-body"><p class="card-text">१ वेळा पुरुषसुक्त</p></div>
-        <button class="copy-btn" onclick="copyText(this,'१ वेळा पुरुषसुक्त')">
-          <svg viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
-        </button>
-      </div>
-
-      <div class="card">
-        <div class="card-num">१०</div>
-        <div class="card-body"><p class="card-text">१ माळ श्री विष्णूचा मंत्र ( श्री वत्सं धारायन् )</p></div>
-        <button class="copy-btn" onclick="copyText(this,'१ माळ श्री विष्णूचा मंत्र ( श्री वत्सं धारायन् )')">
-          <svg viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
-        </button>
-      </div>
-    </div>
-  </div>
 
   <!-- QUESTION PANEL -->
   <div class="panel" id="panel-question">
@@ -488,7 +499,6 @@
     return `${d}/${m}/${y}`;
   }
 
-  // Update the UI on load to replace '(date)' placeholders dynamically
   window.addEventListener('DOMContentLoaded', () => {
     const dateStr = getTodayFormatted();
     
@@ -520,10 +530,14 @@
   }
 
   function switchTab(tab) {
-    document.querySelectorAll('.tab-btn').forEach((b, i) =>
-      b.classList.toggle('active', tab === 'seva' ? i === 0 : i === 1));
+    document.getElementById('tab-seva').classList.toggle('active', tab === 'seva');
+    document.getElementById('tab-vishesh').classList.toggle('active', tab === 'vishesh');
+    document.getElementById('tab-question').classList.toggle('active', tab === 'question');
+    
     document.getElementById('panel-seva').classList.toggle('active', tab === 'seva');
+    document.getElementById('panel-vishesh').classList.toggle('active', tab === 'vishesh');
     document.getElementById('panel-question').classList.toggle('active', tab === 'question');
+    
     if (tab === 'question') renderQuestions();
   }
 
